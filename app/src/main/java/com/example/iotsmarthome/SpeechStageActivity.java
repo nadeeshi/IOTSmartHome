@@ -4,14 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.beardedhen.androidbootstrap.TypefaceProvider;
-
-public class MainActivity extends AppCompatActivity {
+public class SpeechStageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TypefaceProvider.registerDefaultIconSets();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_speech_stage);
     }
 }
