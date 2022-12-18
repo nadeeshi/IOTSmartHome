@@ -13,4 +13,16 @@
     <string name="starting">Starting\n</string>
     <string name="say_something">Say something\n</string>
     <string name="stop_file">Stop File</string>
+
+    <string name="select_room_view">Select Room</string>
+    <string name="living_room">Living Room</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="back">Back</string>
+    <string name="view_voice_command_list">View Voice Command List</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 </resources>

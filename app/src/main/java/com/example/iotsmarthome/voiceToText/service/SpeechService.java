@@ -1,4 +1,4 @@
-package com.example.iotsmarthome.utils;
+package com.example.iotsmarthome.voiceToText.service;
 
 import android.annotation.SuppressLint;
 import android.media.AudioFormat;
@@ -7,6 +7,9 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
 
+
+import com.example.iotsmarthome.voiceToText.utils.RecognitionListener;
+import com.example.iotsmarthome.voiceToText.utils.Recognizer;
 
 import java.io.IOException;
 

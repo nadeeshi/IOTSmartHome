@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/background_white"
+tools:context=".RoomSelectionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Welcome to your home"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="100dp"/>
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="860dp"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="false"
+                            android:paddingBottom="20dp" />
+                    </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/half_circle"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/home_ll"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/home_rl"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/home" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/time_ll"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/time_rl"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:onClick="onBackClicked"
+                            android:background="@drawable/left_arrow"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/scene_ll"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/scene_rl"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp">
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/setting_ll"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/setting_rl"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/settings" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

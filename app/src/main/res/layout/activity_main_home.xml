@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#EEEEEE"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainHomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="147dp"
+                android:layout_alignBottom="@+id/linear_layout"
+                android:layout_marginBottom="-16dp"
+                android:background="@drawable/bg_2" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/circle_white"
+                android:elevation="2dp"
+                android:padding="20dp"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/logo" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="IOT Smart Home"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FF5722"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <com.beardedhen.androidbootstrap.BootstrapThumbnail
+                android:layout_width="wrap_content"
+                android:layout_height="303dp"
+                android:layout_gravity="center"
+                android:src="@drawable/smart_home_image2"
+                app:bootstrapBrand="danger"
+                app:hasBorder="true"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="114dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="133dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/select_room_view_button"
+                android:layout_width="267dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:text="@string/select_room_view"
+                app:bootstrapBrand="warning"
+                app:bootstrapSize="lg"
+                app:buttonMode="regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.666"
+                app:roundedCorners="true"
+                app:showOutline="false" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

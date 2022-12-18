@@ -1,4 +1,4 @@
-package com.example.iotsmarthome.utils;
+package com.example.iotsmarthome.voiceToText.service;
 
 
 public class SpeechStreamService {

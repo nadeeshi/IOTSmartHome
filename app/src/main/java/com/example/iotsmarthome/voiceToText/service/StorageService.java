@@ -1,4 +1,4 @@
-package com.example.iotsmarthome.utils;
+package com.example.iotsmarthome.voiceToText.service;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -6,6 +6,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+
+import com.example.iotsmarthome.voiceToText.utils.Model;
 
 import java.io.BufferedReader;
 import java.io.File;

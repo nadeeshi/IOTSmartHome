@@ -1,4 +1,4 @@
-package com.example.iotsmarthome.utils;
+package com.example.iotsmarthome.voiceToText.utils;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;

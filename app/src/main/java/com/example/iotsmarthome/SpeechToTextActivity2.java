@@ -14,12 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.iotsmarthome.utils.Model;
-import com.example.iotsmarthome.utils.RecognitionListener;
-import com.example.iotsmarthome.utils.Recognizer;
-import com.example.iotsmarthome.utils.SpeechService;
-import com.example.iotsmarthome.utils.SpeechStreamService;
-import com.example.iotsmarthome.utils.StorageService;
+import com.example.iotsmarthome.voiceToText.utils.Model;
+import com.example.iotsmarthome.voiceToText.utils.RecognitionListener;
+import com.example.iotsmarthome.voiceToText.utils.Recognizer;
+import com.example.iotsmarthome.voiceToText.service.SpeechService;
+import com.example.iotsmarthome.voiceToText.service.SpeechStreamService;
+import com.example.iotsmarthome.voiceToText.service.StorageService;
 
 import java.io.IOException;
 
@@ -125,7 +125,7 @@ public class SpeechToTextActivity2 extends Activity implements RecognitionListen
 
     @Override
     public void onPartialResult(String hypothesis) {
-        //resultView.append(hypothesis + "\n");
+        resultView.append(hypothesis + "\n");
     }
 
     @Override
