@@ -48,6 +48,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
                 android:gravity="center">
+
+                <android.widget.Switch
+                    android:id="@+id/switchButton"
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:checked="true"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="on" />
             </LinearLayout>
         </LinearLayout>
 

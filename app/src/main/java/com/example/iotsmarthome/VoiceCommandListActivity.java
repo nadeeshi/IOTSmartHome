@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.example.iotsmarthome.adapter.SingleCommandAdapter;
 import com.example.iotsmarthome.model.VoiceCommand;
 import java.util.ArrayList;
@@ -46,5 +49,10 @@ public class VoiceCommandListActivity extends AppCompatActivity {
         voiceCommandList.add(voiceCommand);
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    public void onBackClicked(View view) {
+        startActivity(new Intent(getApplicationContext(), RoomSelectionActivity.class));
+        finish();
     }
 }
