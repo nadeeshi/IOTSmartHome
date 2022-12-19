@@ -14,7 +14,7 @@ import ch.ethz.ssh2.StreamGobbler;
 public class ConnectionService {
 
     public String run(String command) {
-        String hostname = "130.237.177.206";
+        String hostname = "10.201.11.77";
         String username = "pi";
         String password = "IoT@2021";
         String temp_val = "";
