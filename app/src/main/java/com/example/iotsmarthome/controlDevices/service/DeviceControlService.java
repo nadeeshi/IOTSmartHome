@@ -34,6 +34,9 @@ public class DeviceControlService {
             System.out.println(response[0]);
             System.out.println(response[0].split("\\s+")[1]);
         }else if (command.equals("sensors") || command.equals("light sensors")) {
+
+//           type=sensor	protocol=fineoffset	model=temperaturehumidity	id=135	temperature=22.8	humidity=35	time=2022-12-27 18:38:16	age=24
+//           type=sensor	protocol=fineoffset	model=temperaturehumidity	id=247	temperature=20.3	humidity=38	time=2022-12-27 18:38:10	age=30
             String[] sensors_list = connectionService.run("tdtool --list-sensors");
 
             System.out.println(sensors_list[0]);
