@@ -13,11 +13,12 @@ import ch.ethz.ssh2.StreamGobbler;
 
 public class ConnectionService {
 
-    public String run(String command) {
-        String hostname = "130.237.177.206";
+    public String[] run(String command) {
+        String hostname = "10.201.11.77";
         String username = "pi";
         String password = "IoT@2021";
         String temp_val = "";
+        String[] response_data = new String[5];
         try {
             StrictMode.ThreadPolicy policy = new
                     StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -33,16 +34,15 @@ public class ConnectionService {
             sess.execCommand(command);
             InputStream stdout = new StreamGobbler(sess.getStdout());
             BufferedReader br = new BufferedReader(new InputStreamReader(stdout));
-            //reads text
+            //reads text and save in an array
 
+            int i=0;
             while (true) {
                 String line = br.readLine();
                 if (line == null)
                     break;
-                System.out.println(line);
-                String[] temp_val_arr = line.split("\\n");
-                temp_val = temp_val_arr[0];
-
+                response_data[i] = line;
+                i++;
             }
             /* Show exit status, if available (otherwise "null") */
             System.out.println("ExitCode: " + sess.getExitStatus());
@@ -52,7 +52,7 @@ public class ConnectionService {
             e.printStackTrace(System.err);
             System.exit(2);
         }
-        return temp_val;
+        return response_data;
     }
 
 }
