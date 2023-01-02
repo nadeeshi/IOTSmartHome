@@ -21,6 +21,10 @@ import java.io.OutputStream;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * This class provide utility methods sync model files from external storage
+ * and created file name UUID and get it to track updates
+ */
 public class StorageService {
 
     protected static final String TAG = StorageService.class.getSimpleName();
@@ -30,7 +34,7 @@ public class StorageService {
     }
 
     public static void unpack(Context context, String sourcePath, final String targetPath, final Callback<Model> completeCallback, final Callback<IOException> errorCallback) {
-        Executor executor = Executors.newSingleThreadExecutor(); // change according to your requirements
+        Executor executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
         executor.execute(() -> {
             try {
@@ -60,7 +64,6 @@ public class StorageService {
             String targetUUID = readLine(new FileInputStream(new File(targetDir, sourcePath + "/uuid")));
             if (targetUUID.equals(sourceUUID)) return resultPath;
         } catch (FileNotFoundException e) {
-            // ignore
         }
         deleteContents(targetDir);
 

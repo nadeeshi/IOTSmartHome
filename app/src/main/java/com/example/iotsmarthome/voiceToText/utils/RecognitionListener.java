@@ -1,5 +1,8 @@
 package com.example.iotsmarthome.voiceToText.utils;
 
+/**
+ * This interface used to receive recognition results
+ */
 public interface RecognitionListener {
 
     /**

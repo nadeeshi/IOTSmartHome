@@ -13,26 +13,21 @@ import com.example.iotsmarthome.voiceToText.utils.Recognizer;
 
 import java.io.IOException;
 
-
+/**
+ * This service record audio in a thread, then passes it into a recognizer and gain recognition results
+ * and recognition events are passes to the client using RecognitionListener interface
+ */
 public class SpeechService {
-
     private final Recognizer recognizer;
-
     private final int sampleRate;
     private final static float BUFFER_SIZE_SECONDS = 0.2f;
     private final int bufferSize;
     private final AudioRecord recorder;
-
     private RecognizerThread recognizerThread;
 
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    /**
-     * Creates speech service. Service holds the AudioRecord object, so you
-     * need to call {@link #shutdown()} in order to properly finalize it.
-     *
-     * @throws IOException thrown if audio recorder can not be created for some reason.
-     */
+    // Creates a speech service constructor. This Service holds the AudioRecord object.
     @SuppressLint("MissingPermission")
     public SpeechService(Recognizer recognizer, float sampleRate) throws IOException {
         this.recognizer = recognizer;
@@ -44,6 +39,7 @@ public class SpeechService {
                 AudioFormat.CHANNEL_IN_MONO,
                 AudioFormat.ENCODING_PCM_16BIT, bufferSize * 2);
 
+        // throw an exception if audio recorder can not be created for any reason
         if (recorder.getState() == AudioRecord.STATE_UNINITIALIZED) {
             recorder.release();
             throw new IOException(
@@ -51,12 +47,8 @@ public class SpeechService {
         }
     }
 
-
-    /**
-     * Starts recognition. Does nothing if recognition is active.
-     *
-     * @return true if recognition was actually started
-     */
+    // Starts recognition. Does nothing if recognition is active.
+    // return true if recognition was actually started
     public boolean startListening(RecognitionListener listener) {
         if (null != recognizerThread)
             return false;
@@ -66,6 +58,7 @@ public class SpeechService {
         return true;
     }
 
+    // Return true if recognition was actually stopped
     private boolean stopRecognizerThread() {
         if (null == recognizerThread)
             return false;
@@ -82,19 +75,12 @@ public class SpeechService {
         return true;
     }
 
-    /**
-     * Stops recognition. Listener should receive final result if there is
-     * any. Does nothing if recognition is not active.
-     *
-     * @return true if recognition was actually stopped
-     */
+    // Stops recognition. Listener should receive final result if there is any. Does nothing if recognition is not active.
     public boolean stop() {
         return stopRecognizerThread();
     }
 
-    /**
-     * Shutdown the recognizer and release the recorder
-     */
+    // Shutdown the recognizer and release the recorder
     public void shutdown() {
         recorder.release();
     }
@@ -140,7 +126,6 @@ public class SpeechService {
 
         @Override
         public void run() {
-
             recorder.startRecording();
             if (recorder.getRecordingState() == AudioRecord.RECORDSTATE_STOPPED) {
                 recorder.stop();

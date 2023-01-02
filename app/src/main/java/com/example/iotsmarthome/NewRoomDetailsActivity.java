@@ -13,7 +13,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -28,7 +27,6 @@ import com.example.iotsmarthome.adapter.SingleRoomAdapter;
 import com.example.iotsmarthome.controlDevices.service.DeviceControlService;
 import com.example.iotsmarthome.model.Room;
 import com.example.iotsmarthome.voiceToText.service.SpeechService;
-import com.example.iotsmarthome.voiceToText.service.SpeechStreamService;
 import com.example.iotsmarthome.voiceToText.service.StorageService;
 import com.example.iotsmarthome.voiceToText.utils.Model;
 import com.example.iotsmarthome.voiceToText.utils.RecognitionListener;
@@ -50,7 +48,6 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
 
     private Model model;
     private SpeechService speechService;
-    private SpeechStreamService speechStreamService;
     private TextView resultView;
 
     static private final int STATE_START = 0;
@@ -75,14 +72,10 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         //make fully Android Transparent Status bar
-        if (Build.VERSION.SDK_INT >= 21) {
-            setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_room_details);
 
@@ -128,7 +121,6 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
 
     @Override
     public void onResult(String hypothesis) {
-       // resultView.append(hypothesis + "\n");
         String command = getCommandString(hypothesis);
         resultView.append("Command :- " + command + "\n");
 
@@ -138,14 +130,10 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
 
     @Override
     public void onFinalResult(String hypothesis) {
-      //  resultView.append(hypothesis + "\n");
 
         resultView.append("Final Command :- " + getCommandString(hypothesis) + "\n");
 
         setUiState(STATE_DONE);
-        if (speechStreamService != null) {
-            speechStreamService = null;
-        }
     }
 
     @Override
@@ -196,10 +184,6 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
         if (speechService != null) {
             speechService.stop();
             speechService.shutdown();
-        }
-
-        if (speechStreamService != null) {
-            speechStreamService.stop();
         }
     }
 
