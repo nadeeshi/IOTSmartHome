@@ -10,39 +10,38 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iotsmarthome.R;
-import com.example.iotsmarthome.model.Room;
 import com.example.iotsmarthome.model.VoiceCommand;
 
 import java.util.List;
 
 public class SingleCommandAdapter extends RecyclerView.Adapter<SingleCommandAdapter.MyViewHolder> {
     Context context;
-    private List<VoiceCommand> roomList;
+    private List<VoiceCommand> voiceCommandList;
 
-    public SingleCommandAdapter(List<VoiceCommand> roomList, Context context) {
-        this.roomList = roomList;
+    public SingleCommandAdapter(List<VoiceCommand> voiceCommandList, Context context) {
+        this.voiceCommandList = voiceCommandList;
         this.context = context;
     }
 
     @Override
     public SingleCommandAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.single_room_row, parent, false);
+                .inflate(R.layout.single_command_row, parent, false);
 
         return new SingleCommandAdapter.MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(SingleCommandAdapter.MyViewHolder holder, int position) {
-        VoiceCommand room = roomList.get(position);
+        VoiceCommand voiceCommand = voiceCommandList.get(position);
 
-        holder.title.setText(room.getCommand());
+        holder.title.setText(voiceCommand.getCommand());
 
     }
 
     @Override
     public int getItemCount() {
-        return roomList.size();
+        return voiceCommandList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
