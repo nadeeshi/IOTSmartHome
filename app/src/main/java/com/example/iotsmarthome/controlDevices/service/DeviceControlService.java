@@ -23,12 +23,12 @@ public class DeviceControlService {
             System.out.println(device_id.split("\\=")[1]);
 //            2
 
-        } else if (command.equals("turn on") || command.equals("light turn on")) {
+        } else if (matchTurnOnLightWords(command)) {
             String[]  response = connectionService.run("tdtool --on 2");
             System.out.println(response);
             System.out.println(response[0]);
             System.out.println(response[0].split("\\s+")[1]);
-        } else if (command.equals("turn off") || command.equals("light turn off")) {
+        } else if (matchTurnOffLightWords(command)) {
             String[]  response = connectionService.run("tdtool --off 2");
             System.out.println(response);
             System.out.println(response[0]);
@@ -55,5 +55,14 @@ public class DeviceControlService {
 //            22.8
         }
 
+    }
+    private boolean matchTurnOnLightWords(String command) {
+        return command.equals("turn on") || command.equals("light turn on") || command.equals("turn on light") || command.equals("turn on the light")
+                || command.equals("then on light") || command.equals("the on light");
+    }
+
+    private boolean matchTurnOffLightWords(String command) {
+        return command.equals("turn off") || command.equals("light turn off") || command.equals("turn off light") || command.equals("turn off the light")
+                || command.equals("then off light") || command.equals("the off light");
     }
 }
