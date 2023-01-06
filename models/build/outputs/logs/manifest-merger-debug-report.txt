@@ -1,27 +1,27 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml:2:1-7:12
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml:2:1-7:12
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml:2:1-7:12
+ADDED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml:2:1-7:12
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml:2:1-7:12
 	package
-		ADDED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml:4:5-46
-		INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-		INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
+		ADDED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml:4:5-46
+		INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+		INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml:3:1-47
+		ADDED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml:3:1-47
 	xmlns:android
-		ADDED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-		ADDED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-		INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
+		INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+		ADDED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+		INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-		ADDED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
-		INJECTED from D:\androidStudioWorkplace\IOTSmartHome\models\src\main\AndroidManifest.xml
+		INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+		ADDED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
+		INJECTED from D:\Lak\IOTSmartHome\models\src\main\AndroidManifest.xml
