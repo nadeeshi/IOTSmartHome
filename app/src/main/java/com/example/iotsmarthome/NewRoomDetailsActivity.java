@@ -150,7 +150,6 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
      * Initial model
      */
     private void initModel() {
-        //StorageService.unpack(this, "model-en-us", "model",
         StorageService.unpack(this, "vosk-model-small-en-us-0.15", "model",
 
                 (model) -> {
@@ -168,8 +167,6 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
 
         if (requestCode == PERMISSIONS_REQUEST_RECORD_AUDIO) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Recognizer initialization is a time-consuming and it involves IO,
-                // so we execute it in async task
                 initModel();
             } else {
                 finish();

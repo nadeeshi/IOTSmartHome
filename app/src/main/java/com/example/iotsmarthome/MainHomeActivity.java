@@ -1,7 +1,6 @@
 package com.example.iotsmarthome;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.iotsmarthome.controlDevices.service.DeviceControlService;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import com.beardedhen.androidbootstrap.TypefaceProvider;
 public class MainHomeActivity extends AppCompatActivity {
 
     BootstrapButton open_room_view_button;
-    DeviceControlService deviceControlService = new DeviceControlService();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +23,6 @@ public class MainHomeActivity extends AppCompatActivity {
         open_room_view_button.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), RoomSelectionActivity.class);
             startActivity(intent);
-            //Temporary for testing need to move to its place
-//            deviceControlService.controlDevice("sensors");
         });
     }
 }
