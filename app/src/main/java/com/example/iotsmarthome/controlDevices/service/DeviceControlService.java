@@ -57,12 +57,12 @@ public class DeviceControlService {
 
     }
     private boolean matchTurnOnLightWords(String command) {
-        return command.equals("turn on") || command.equals("light turn on") || command.equals("turn on light") || command.equals("turn on the light")
-                || command.equals("then on light") || command.equals("the on light");
+        return command.contains("turn on") || command.contains("light turn on") || command.contains("turn on light") || command.contains("turn on the light")
+                || command.contains("then on light") || command.contains("the on light");
     }
 
     private boolean matchTurnOffLightWords(String command) {
-        return command.equals("turn off") || command.equals("light turn off") || command.equals("turn off light") || command.equals("turn off the light")
-                || command.equals("then off light") || command.equals("the off light");
+        return command.contains("turn off") || command.contains("light turn off") || command.contains("turn off light") || command.contains("turn off the light")
+                || command.contains("then off light") || command.contains("the off light");
     }
 }
