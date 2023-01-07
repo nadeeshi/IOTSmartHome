@@ -23,9 +23,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.example.iotsmarthome.adapter.SingleRoomAdapter;
+import com.example.iotsmarthome.adapter.DeviceAdapter;
 import com.example.iotsmarthome.controlDevices.service.DeviceControlService;
-import com.example.iotsmarthome.model.Room;
+import com.example.iotsmarthome.model.Device;
 import com.example.iotsmarthome.voiceToText.service.SpeechService;
 import com.example.iotsmarthome.voiceToText.service.StorageService;
 import com.example.iotsmarthome.voiceToText.utils.Model;
@@ -37,9 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewRoomDetailsActivity extends AppCompatActivity implements RecognitionListener {
-    private List<Room> roomList = new ArrayList<>();
+    private List<Device> deviceList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private SingleRoomAdapter mAdapter;
+    private DeviceAdapter mAdapter;
 
     RelativeLayout setting_rl;
 
@@ -56,7 +56,7 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
     static private final int STATE_FILE = 3;
     static private final int STATE_MIC = 4;
 
-    DeviceControlService deviceControlService;
+    DeviceControlService deviceControlService = new DeviceControlService();
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
@@ -81,13 +81,13 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
 
         recyclerView = findViewById(R.id.recycler_view);
 
-        mAdapter = new SingleRoomAdapter(roomList, getApplicationContext());
+        mAdapter = new DeviceAdapter(deviceList, getApplicationContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-        prepareRoomData();
+        prepareRoomDeviceData();
 
         setting_rl = findViewById(R.id.setting_rl);
         setting_rl.setOnClickListener(new View.OnClickListener() {
@@ -122,16 +122,16 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
     @Override
     public void onResult(String hypothesis) {
         String command = getCommandString(hypothesis);
-        resultView.append("Command :- " + command + "\n");
+       // resultView.append("Command :- " + command + "\n");
 
         //to call device action based on the command
-       // deviceControlService.controlDevice(command);
+        deviceControlService.controlDevice(command);
     }
 
     @Override
     public void onFinalResult(String hypothesis) {
 
-        resultView.append("Final Command :- " + getCommandString(hypothesis) + "\n");
+       // resultView.append("Final Command :- " + getCommandString(hypothesis) + "\n");
 
         setUiState(STATE_DONE);
     }
@@ -187,15 +187,11 @@ public class NewRoomDetailsActivity extends AppCompatActivity implements Recogni
         }
     }
 
-    private void prepareRoomData() {
-        Room room = new Room("1", "Light");
-        roomList.add(room);
-        room = new Room("2", "Fan");
-        roomList.add(room);
-        room = new Room("1", "Air Conditioner");
-        roomList.add(room);
-        room = new Room("1", "TV");
-        roomList.add(room);
+    private void prepareRoomDeviceData() {
+        Device device = new Device("1", "Light");
+        deviceList.add(device);
+        device = new Device("2", "TV");
+        deviceList.add(device);
 
         mAdapter.notifyDataSetChanged();
     }

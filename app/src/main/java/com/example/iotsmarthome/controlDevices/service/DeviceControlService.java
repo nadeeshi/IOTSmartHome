@@ -29,11 +29,18 @@ public class DeviceControlService {
             System.out.println(response[0]);
             System.out.println(response[0].split("\\s+")[1]);
         } else if (matchTurnOffLightWords(command)) {
-            String[]  response = connectionService.run("tdtool --off 2");
+            String[] response = connectionService.run("tdtool --off 2");
             System.out.println(response);
             System.out.println(response[0]);
             System.out.println(response[0].split("\\s+")[1]);
-        }else if (command.equals("sensors") || command.equals("light sensors")) {
+
+        } else if(matchTurnOnTVWords(command)) {
+            String[] response = connectionService.run("tdtool --on 3");
+
+        } else if(matchTurnOffTVWords(command)) {
+            String[] response = connectionService.run("tdtool --off 3");
+
+        } else if (command.equals("sensors") || command.equals("light sensors")) {
 
 //           type=sensor	protocol=fineoffset	model=temperaturehumidity	id=135	temperature=22.8	humidity=35	time=2022-12-27 18:38:16	age=24
 //           type=sensor	protocol=fineoffset	model=temperaturehumidity	id=247	temperature=20.3	humidity=38	time=2022-12-27 18:38:10	age=30
@@ -56,13 +63,24 @@ public class DeviceControlService {
         }
 
     }
+
     private boolean matchTurnOnLightWords(String command) {
-        return command.contains("turn on") || command.contains("light turn on") || command.contains("turn on light") || command.contains("turn on the light")
+        return command.contains("light turn on") || command.contains("turn on light") || command.contains("turn on the light")
                 || command.contains("then on light") || command.contains("the on light");
     }
 
     private boolean matchTurnOffLightWords(String command) {
-        return command.contains("turn off") || command.contains("light turn off") || command.contains("turn off light") || command.contains("turn off the light")
+        return command.contains("light turn off") || command.contains("turn off light") || command.contains("turn off the light")
                 || command.contains("then off light") || command.contains("the off light");
+    }
+
+    private boolean matchTurnOnTVWords(String command) {
+        return command.contains("tv turn on") || command.contains("turn on tv") || command.contains("turn on the tv")
+                || command.contains("then on tv") || command.contains("the on tv");
+    }
+
+    private boolean matchTurnOffTVWords(String command) {
+        return command.contains("light turn off") || command.contains("turn off tv") || command.contains("turn off the tv")
+                || command.contains("then off tv") || command.contains("the off tv");
     }
 }

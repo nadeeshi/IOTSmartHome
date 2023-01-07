@@ -56,7 +56,8 @@
                     android:checked="true"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="on" />
+                    android:textOff="Off"
+                    android:textOn="On"/>
             </LinearLayout>
         </LinearLayout>
 

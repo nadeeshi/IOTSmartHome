@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.iotsmarthome.adapter.SingleCommandAdapter;
+import com.example.iotsmarthome.adapter.CommandAdapter;
 import com.example.iotsmarthome.model.VoiceCommand;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class VoiceCommandListActivity extends AppCompatActivity {
 
     private List<VoiceCommand> voiceCommandList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private SingleCommandAdapter mAdapter;
+    private CommandAdapter mAdapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -29,7 +29,7 @@ public class VoiceCommandListActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.command_list_view);
 
-        mAdapter = new SingleCommandAdapter(voiceCommandList, getApplicationContext());
+        mAdapter = new CommandAdapter(voiceCommandList, getApplicationContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
